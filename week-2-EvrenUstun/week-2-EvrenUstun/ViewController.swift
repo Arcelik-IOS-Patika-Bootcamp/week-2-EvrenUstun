@@ -8,14 +8,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet var firstLabel: UILabel!
+    
+    // MARK: UIButton
+    @IBOutlet weak var chooseDriverButton: UIButton!
+    @IBOutlet weak var chooseTeam: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        let destController = navController.topViewController as! SelectionTableViewController
+        
+        if segue.identifier == "driverSegue"{
+            destController.listType = .drivers
+        }
+        
+        if segue.identifier == "teamSegue"{
+            destController.listType = .teams
+        }
+    }
+    
 }
 
