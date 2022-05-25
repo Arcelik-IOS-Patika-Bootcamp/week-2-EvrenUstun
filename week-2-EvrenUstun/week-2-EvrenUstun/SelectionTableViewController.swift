@@ -10,17 +10,25 @@ import UIKit
 let drivers = ["Max Verstappen", "Charles Leclerc", "Lewis Hamilton"]
 let teams = ["Red Bull", "Ferrari", "Mercedes"]
 
+// enum for which list is showing.
 enum ListType{
     case drivers
     case teams
 }
 
+protocol ItemSelectionDelegate: AnyObject {
+    func itemSelected(listType: ListType, selectedItem: String)
+}
+
 class SelectionTableViewController: UITableViewController {
     
+    // MARK: Variables
     var dataSource: [String]!
     var listType: ListType = .drivers
     var selectedIndex = -1
     var selectedItem: String!
+    
+    var delegate:ItemSelectionDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +39,21 @@ class SelectionTableViewController: UITableViewController {
         case .teams:
             dataSource = teams
         }
+        
+        if let selectedItem = selectedItem{
+            if let index = dataSource.firstIndex(of: selectedItem){
+                selectedIndex = index
+            }
+        }
 
     }
-
+    
+    // When done button clicked.
+    @IBAction func done(_ sender: Any) {
+        delegate!.itemSelected(listType: listType, selectedItem: dataSource[selectedIndex])
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,64 +66,24 @@ class SelectionTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResuableCell", for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.text = dataSource[indexPath.row]
         
         if indexPath.row == selectedIndex{
-            cell.accessoryType = .checkmark
+            cell.accessoryType = .checkmark // when we clicked a row, put a checkmark.
         }else{
             cell.accessoryType = .none
         }
 
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

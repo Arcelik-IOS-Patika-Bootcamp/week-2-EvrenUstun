@@ -70,7 +70,9 @@
                     <navigationItem key="navigationItem" id="9bR-Ri-z5h"/>
                     <connections>
                         <outlet property="chooseDriverButton" destination="XH2-k3-Oux" id="00T-ii-4j3"/>
-                        <outlet property="chooseTeam" destination="yZi-SQ-1FG" id="32a-fJ-Atp"/>
+                        <outlet property="chooseTeamButton" destination="yZi-SQ-1FG" id="32a-fJ-Atp"/>
+                        <outlet property="driverLabel" destination="EVM-6c-Wbs" id="hWo-RE-K4d"/>
+                        <outlet property="teamLabel" destination="OL1-i4-SvT" id="nYQ-L5-j5T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,14 +84,14 @@
             <objects>
                 <tableViewController id="Gi5-gO-jzy" customClass="SelectionTableViewController" customModule="week_2_EvrenUstun" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="h3y-xf-rfQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hlW-uH-5rq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResuableCell" id="hlW-uH-5rq">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hlW-uH-5rq" id="edg-mA-vTd">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ResuableCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hlW-uH-5rq" id="edg-mA-vTd">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -100,7 +102,13 @@
                             <outlet property="delegate" destination="Gi5-gO-jzy" id="WwJ-kK-mXl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="saM-H3-LWk"/>
+                    <navigationItem key="navigationItem" id="saM-H3-LWk">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="rD0-FY-qCl">
+                            <connections>
+                                <action selector="done:" destination="Gi5-gO-jzy" id="6QZ-I9-Ftd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icg-CM-EdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,16 +117,15 @@
         <!--Navigation Controller-->
         <scene sceneID="ZeP-En-L3g">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="73w-k7-pCd" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="light" id="73w-k7-pCd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dF7-wO-jn8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x3o-c7-Bb0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Apf-kZ-PTx">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
