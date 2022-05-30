@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: UIButton
+    // MARK: - UIButton
     @IBOutlet weak var chooseDriverButton: UIButton!
     @IBOutlet weak var chooseTeamButton: UIButton!
     
-    // MARK: UILabel
+    // MARK: - UILabel
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var driverLabel: UILabel!
     

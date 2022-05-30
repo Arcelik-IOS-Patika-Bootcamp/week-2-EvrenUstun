@@ -22,7 +22,7 @@ protocol ItemSelectionDelegate: AnyObject {
 
 class SelectionTableViewController: UITableViewController {
     
-    // MARK: Variables
+    // MARK: - Variables
     var dataSource: [String]!
     var listType: ListType = .drivers
     var selectedIndex = -1
@@ -49,7 +49,7 @@ class SelectionTableViewController: UITableViewController {
     }
     
     // When done button clicked.
-    @IBAction func done(_ sender: Any) {
+    @IBAction func doneButtonPressed(_ sender: Any) {
         delegate!.itemSelected(listType: listType, selectedItem: dataSource[selectedIndex])
         self.dismiss(animated: true, completion: nil)
     }
@@ -66,7 +66,7 @@ class SelectionTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResuableCell", for: indexPath)
+        let cell = UITableViewCell()
 
         // Configure the cell...
         cell.textLabel?.text = dataSource[indexPath.row]

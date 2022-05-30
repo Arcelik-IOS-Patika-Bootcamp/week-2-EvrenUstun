@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,48 +17,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Favorite F1 driver &amp; Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-w4-po5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorite F1 driver &amp; Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-w4-po5">
                                 <rect key="frame" x="49" y="88" width="316" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="F1 Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVM-6c-Wbs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="F1 Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVM-6c-Wbs">
                                 <rect key="frame" x="129" y="212" width="157" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="YAc-Ig-sX7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XH2-k3-Oux">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XH2-k3-Oux">
                                 <rect key="frame" x="99" y="298" width="216" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="FGO-LF-Nz4"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Click Here to Choose">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="73w-k7-pCd" kind="show" identifier="driverSegue" id="dVn-NE-WFw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="F1 Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL1-i4-SvT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="F1 Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL1-i4-SvT">
                                 <rect key="frame" x="129" y="419" width="157" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="m4c-Vr-cN7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZi-SQ-1FG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZi-SQ-1FG">
                                 <rect key="frame" x="99" y="505" width="216" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="zVi-2s-rdd"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Click Here to Choose">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="73w-k7-pCd" kind="show" identifier="teamSegue" id="2Kt-5B-a89"/>
@@ -66,6 +76,24 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OL1-i4-SvT" firstAttribute="top" secondItem="XH2-k3-Oux" secondAttribute="bottom" constant="87" id="0YE-xU-9wi"/>
+                            <constraint firstItem="yZi-SQ-1FG" firstAttribute="top" secondItem="OL1-i4-SvT" secondAttribute="bottom" constant="47" id="5jd-dH-JHI"/>
+                            <constraint firstItem="EVM-6c-Wbs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="6aL-Vv-Byd"/>
+                            <constraint firstItem="EVM-6c-Wbs" firstAttribute="top" secondItem="bYN-w4-po5" secondAttribute="bottom" constant="52" id="AY8-im-zal"/>
+                            <constraint firstItem="XH2-k3-Oux" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="BDk-Ur-kAe"/>
+                            <constraint firstItem="XH2-k3-Oux" firstAttribute="top" secondItem="EVM-6c-Wbs" secondAttribute="bottom" constant="47" id="CNh-u1-fJ9"/>
+                            <constraint firstItem="XH2-k3-Oux" firstAttribute="trailing" secondItem="yZi-SQ-1FG" secondAttribute="trailing" id="DzI-Xm-M06"/>
+                            <constraint firstItem="EVM-6c-Wbs" firstAttribute="centerX" secondItem="XH2-k3-Oux" secondAttribute="centerX" id="Njt-et-hLS"/>
+                            <constraint firstItem="bYN-w4-po5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="Pob-Br-JSh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yZi-SQ-1FG" secondAttribute="bottom" constant="323" id="QRw-W7-bE3"/>
+                            <constraint firstItem="bYN-w4-po5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="Qo1-CK-tiy"/>
+                            <constraint firstItem="EVM-6c-Wbs" firstAttribute="trailing" secondItem="OL1-i4-SvT" secondAttribute="trailing" id="b1f-sv-eay"/>
+                            <constraint firstItem="EVM-6c-Wbs" firstAttribute="leading" secondItem="OL1-i4-SvT" secondAttribute="leading" id="dVq-zs-3VU"/>
+                            <constraint firstItem="XH2-k3-Oux" firstAttribute="leading" secondItem="yZi-SQ-1FG" secondAttribute="leading" id="eoV-Uq-YUM"/>
+                            <constraint firstItem="bYN-w4-po5" firstAttribute="centerX" secondItem="EVM-6c-Wbs" secondAttribute="centerX" id="jJp-hC-W25"/>
+                            <constraint firstItem="bYN-w4-po5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rfb-tQ-RnN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9bR-Ri-z5h"/>
                     <connections>
@@ -105,7 +133,7 @@
                     <navigationItem key="navigationItem" id="saM-H3-LWk">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="rD0-FY-qCl">
                             <connections>
-                                <action selector="done:" destination="Gi5-gO-jzy" id="6QZ-I9-Ftd"/>
+                                <action selector="doneButtonPressed:" destination="Gi5-gO-jzy" id="9mf-JQ-mdX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -141,6 +169,9 @@
         <segue reference="2Kt-5B-a89"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
